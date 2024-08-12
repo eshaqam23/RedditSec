@@ -1,13 +1,530 @@
-body {
+/* Resetting default styles */
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  scroll-behavior: smooth;
 }
+
+body {
+  background-color: orangered;
+}
+
+/* Header Styling */
+.header {
+  display: grid;
+  grid-template: 1fr / auto auto auto;
+  width: 100%;
+  height: 100px;
+  background-color: white;
+  align-content: center;
+}
+
+.header .logo {
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 1;
+  height: 100%;
+  align-content: center;
+  justify-content: center;
+}
+
+.header .logo .logoImg {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.header .logo .logoImg img {
+  height: 1.5em;
+}
+
+.header .logo .logoName {
+  display: inline-block;
+}
+
+.header .logo .logoName h2 {
+  font-size: 1.9em;
+  font-family: "Reddit Sans Condensed";
+  font-weight: 800;
+}
+
+.header .logo .logoName span {
+  color: orangered;
+  font-family: "Reddit Sans Condensed";
+}
+
+/* Navigation Bar Styling */
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+h2 {
+  vertical-align: center;
+  text-align: center;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+* {
+  font-family: "Raleway";
+  box-sizing: border-box;
+}
+
+.top-nav {
+  display: flex;
+  grid-column: 3 / span 1;
+  grid-row: 1 / span 1;
+  align-self: center;
+  justify-self: start;
+  background-color: white;
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: orangered;
+  height: 50px;
+  padding: 1em;
+  width: 50px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu > li {
+  margin-right: 2.5em;
+  overflow: hidden;
+  font-weight: 600;
+  font-family: "Reddit Sans Condensed";
+  font-size: 1em;
+  
+}
+
+.subList {
+  color: white;
+}
+
+.menu li:hover {
+  cursor: pointer;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+}
+
+.menu-button-container {
+  display: none;
+  height: 100%;
+  width: 30px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.menu-button,
+.menu-button::before,
+.menu-button::after {
+  display: block;
+  background-color: orangered;
+  position: absolute;
+  height: 4px;
+  width: 30px;
+  transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 2px;
+}
+
+.menu-button::before {
+  content: '';
+  margin-top: -8px;
+}
+
+.menu-button::after {
+  content: '';
+  margin-top: 8px;
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button::before {
+  margin-top: 0px;
+  transform: rotate(405deg);
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button {
+  background: white;
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button::after {
+  margin-top: 0px;
+  transform: rotate(-405deg);
+}
+
+@media (max-width: 800px) {
+  .menu-button-container {
+    display: flex;
+  }
+  .menu {
+    position: absolute;
+    top: 0;
+    margin-top: 50px;
+    left: 0;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  #menu-toggle ~ .menu li {
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  #menu-toggle:checked ~ .menu li {
+    height: 2.5em;
+    padding: 0.5em;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    
+  }
+  .menu > li {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0.5em 0;
+    width: 100%;
+    color: white;
+    background-color: rgba(255, 69, 0, 0.9);
+    position: relative;
+    top: 50px;
+  }
+
+  .menu > li:hover {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0.5em 0;
+    width: 100%;
+    color: orangered;
+    background-color: white;
+    position: relative;
+    top: 50px;
+  }
+
+  .menu > li:not(:last-child) {
+    border-bottom: 1px solid white;
+  }
+}
+
+/* Posts Section */
+.allPosts {
+  display: table-cell;
+  float: left;
+  background-color: white;
+  margin: 0.5%;
+  width: 75%;
+  height: 676px;
+  overflow-y: auto;
+}
+
+.heading {
+  margin: 20px auto;
+  font-size: 1.5em;
+  font-family: 'Reddit Sans Condensed';
+  font-weight: 800;
+}
+
+.post {
+  width: 70%;
+  margin: 20px auto;
+  padding: 10px;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+}
+
+.post .content {
+  display: inline-block;
+  width: 90%;
+  height: 100%;
+  overflow: auto;
+  padding: 10px 0;
+}
+
+.post .content .user {
+  padding-bottom: 20px;
+}
+
+.post .content .caption {
+  padding-bottom: 10px;
+}
+
+.post .content .text {
+  padding: 0 10px 10px 10px;
+}
+
+.post .reactions {
+  display: inline-block;
+  width: 10%;  
+  height: 100%;
+}
+
+.post .reactions .scoreSymbols {
+  display: block;
+  height: 100%;
+  align-content: start;
+}
+
+.post .reactions .comments {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.post button {
+  background-color: white;
+  border: none;
+  border-radius: 50%;
+  margin: 5px;
+  padding: 5px;
+  transition: background-color 0.5s;
+  align-content: center;
+}
+
+.post button:hover {
+  background-color: lightgrey;
+  cursor: pointer;
+}
+
+.post i {
+  font-size: 1.5em;
+}
+
+.post p, .post h3 {
+  font-family: 'Montserrat';
+}
+
+.post img {
+  width: 95%;
+  margin: 0 auto;
+}
+
+/* Subreddit Section */
+.allSubreddits {
+  display: table-cell;
+  float: right;
+  background-color: white;
+  margin: 0.5% 0.5% 0.5% 0;
+  width: 23.5%;
+  height: 676px;
+  overflow-y: auto;
+}
+
+.subreddit {
+  margin: 20px auto;
+  border-radius: 50px;
+  width: 60%;
+}
+
+.subreddit button {
+  width: 100%;
+  height: 45px;
+  border: none;
+  font-family: "Reddit Sans Condensed";
+  font-size: 1em;
+  font-weight: 600;
+  background-color: white;
+  color: orangered;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.subreddit button:hover {
+  box-shadow: none;
+  background-color: orangered;
+  color: white;
+  cursor: pointer;
+}
+
+/* Subreddit Button Styling */
+.subreddit-button {
+  background-color: white;
+  color: orangered;
+}
+
+.subreddit-button:hover {
+  background-color: lightgray;
+}
+
+.subreddit-button.selected {
+  background-color: orangered;
+  color: white;
+}
+
+.subreddit-button.selected:hover {
+  background-color: orangered;
+}
+
+/* Modifications Section */
+.modifications {
+  display: table;
+  width: 70%;
+  margin: 20px auto;
+  height: 20px;
+  align-content: center;
+  justify-content: space-between;
+}
+
+/* Search Bar Styling */
+.searchBar {
+  display: table-cell;
+  float: left;
+  margin: 2% 0;
+  width: 45%;
+  height: 100%;
+}
+
+.searchBar input {
+  border: none;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+  width: 70%;
+  height: 30px;
+  padding: 0 10px;
+  font-family: "Montserrat";
+  font-size: 1em;
+}
+
+.searchBar input:focus {
+  outline: none;
+}
+
+.searchBar input[type="text"] {
+  font-family: "Montserrat";
+}
+
+/* Sort By Section */
+.sort-by {
+  display: table-cell;
+  float: right;
+  align-items: center;
+  margin: 2% 2.5%;
+  height: 100%;
+}
+
+.sort-by label {
+  margin-right: 10px;
+  font-size: 1em;
+  color: black;
+  font-family: "Montserrat";
+}
+
+.sort-by select {
+  padding: 8px 12px;
+  font-size: 1em;
+  border: none;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+  background-color: #fff;
+  color: #333;
+  outline: none;
+  height: 30px;
+  font-family: "Montserrat";
+  padding: 0 10px;
+}
+
+.sort-by select:focus, .sort-by select:hover {
+  border-color: orangered;
+}
+
+/* Comments Section */
+.comments button {
+  font-family: "Montserrat";
+}
+
+.comments button:hover {
+  border-radius: 0px;
+  margin-top: 0;
+}
+
+.reactions a {
+  color: black;
+}
+
+.reactions a:hover {
+  cursor: pointer;
+}
+
+.reactions a:visited {
+  color: black;
+}
+
+/* About Section */
+.about {
+  width: 99%;
+  margin: 0.5% 0.5% 0 0.5%;
+  background-color: white;
+  height: 676px;
+  margin-bottom: 0;
+  overflow: auto;
+}
+
+.about h3 {
+  font-family: "Montserrat";
+}
+
+/* Contact Section */
+.contact {
+  width: 99%;
+  margin: 0.5%;
+  background-color: white;
+  height: 676px;
+  margin-bottom: 0;
+  overflow: auto;
+}
+
+.contact h3 {
+  font-family: "Montserrat";
+}
+
+/* Error Button Styling */
+button.error {
+  width: 30%;
+  height: 45px;
+  border: none;
+  font-family: "Montserrat";
+  font-size: 1em;
+  font-weight: 600;
+  margin: 10px auto;
+  background-color: white;
+  color: orangered;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+  transition: background-color 0.5s, color 0.5s;
+}
+
+button.error:hover {
+  box-shadow: none;
+  background-color: orangered;
+  color: white;
+  cursor: pointer;
+}
+
+h3.error {
+  font-family: "Montserrat";
+  font-weight: 500;
+  margin: auto auto;
+}
+
+@media only screen and (max-width: 800px) {
+  .allSubreddits {
+    display: none;
+  }
+
+  .navBar {
+    display: none;
+  }
+
+  .allPosts {
+    width: 99%;
+  }
+}
+
