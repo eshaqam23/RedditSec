@@ -1,3 +1,11 @@
+# Function
+
+This webpage gathers security subreddit data from the Reddit JSON API and displays allows the user to access them. The user can interact with the UI to view different security subreddits. The user can interact with posts on the UI, upvoting or downvoting posts, filtering posts, and sorting by post date. The user can also access the official reddit page of each post if interested.
+
+# Purpose
+
+The purpose of this project was to provide a platform that leverages the Reddit JSON API to house Cybersecurity Subreddit Data. As an aspiring Security Engineer, I wanted to create a functional platform to further a cause that I believe strongly in, while simultaneously delving into the world of Web Development. I've learned about API integration, the React.js framework, and styling animations. My Web Development journey began as a but a segway into the security space, but over the course of the last summer, in my studies I've ended up developing a passion for both. A passion for creation, and for security!
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
